@@ -1,0 +1,18 @@
+.tabListMain{
+    border: 1px solid gray;
+    border-radius: 25px;
+    width: 40%;
+}
+.btn:nth-child(1){
+    margin-left: 20px;
+    background-color: gray;
+}
+.btn{
+    margin-right: 80px !important;
+}
+.tabListContent{
+    margin-top: 50px !important;
+}
+.displayNoneParagraph{
+    display: none;   
+}
