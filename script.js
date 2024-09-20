@@ -1,29 +1,33 @@
 // Get Elements Button
-const londonButton=document.getElementById('button-tab1');
-const parisButton=document.getElementById('button-tab2');
-const tokyoButton=document.getElementById('button-tab3');
+const londonButton = document.getElementById("button-tab1");
+const parisButton = document.getElementById("button-tab2");
+const tokyoButton = document.getElementById("button-tab3");
 
-function tab1Content(){
-    document.getElementById('tab1-content').classList.remove('displayNoneParagraph');
-    document.getElementById('tab2-content').classList.add('displayNoneParagraph');    
-    document.getElementById('tab3-content').classList.add('displayNoneParagraph');
-    londonButton.style.background="gray";
-    parisButton.style.background="azure"
-    tokyoButton.style.background="azure";
+function showContent(tab, button) {
+  // html deki paragrafları dizide tanımlayıp döngüyle döndükten sonra gizlenmesi
+  const tabs = ["tab1-content", "tab2-content", "tab3-content"];
+  const buttons = [londonButton, parisButton, tokyoButton];
+
+  tabs.forEach((tabId) => {
+    document.getElementById(tabId).classList.add("displayNoneParagraph");
+  });
+
+  buttons.forEach((btn) => {
+    btn.style.background = "azure";
+  });
+
+  //  üstte tanımladıgımız butonlara click eventini ekleyip showContente buttona ait olan paragrafı argüman olarak gönderdik ve alt kısımda ise gizliligini kaldırdık ve tıklanan butonuda dışardan argüman olarak alıp arkaplan rengini gri yaptık..
+  document.getElementById(tab).classList.remove("displayNoneParagraph");
+  button.style.background = "gray";
 }
-function tab2Content(){
-    document.getElementById('tab2-content').classList.remove('displayNoneParagraph');
-    document.getElementById('tab1-content').classList.add('displayNoneParagraph');    
-    document.getElementById('tab3-content').classList.add('displayNoneParagraph');
-    parisButton.style.background="gray";
-    londonButton.style.background="azure";
-    tokyoButton.style.background="azure";
-}
-function tab3Content(){
-    document.getElementById('tab3-content').classList.remove('displayNoneParagraph');
-    document.getElementById('tab1-content').classList.add('displayNoneParagraph');
-    document.getElementById('tab2-content').classList.add('displayNoneParagraph');
-    tokyoButton.style.background="gray";
-    parisButton.style.background="azure"
-    londonButton.style.background="azure";
-}
+
+// Buttonlara tıklanma olayları
+londonButton.addEventListener("click", () => {
+  showContent("tab1-content", londonButton);
+});
+parisButton.addEventListener("click", () => {
+  showContent("tab2-content", parisButton);
+});
+tokyoButton.addEventListener("click", () => {
+  showContent("tab3-content", tokyoButton);
+});
